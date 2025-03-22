@@ -1,12 +1,13 @@
 import React from "react";
-import CurrentTemperature from "./CurrentTemperature";
-import CurrentWind from "./CurrentWind";
+import DisplayWeather from "./DisplayWeather";
+
+
 
 function CurrentWeather() {
   return (
     <div>
-      <CurrentTemperature />
-      <CurrentWind />
+      <DisplayWeather />
+     
     </div>
   );
 }
