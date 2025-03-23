@@ -19,8 +19,6 @@ class DisplayWeather extends Component {
     this.state = {
       temperature: null,
       wind: null,
-      temperatureValue: "c",
-      windValue: "kmh",
     };
   }
 
@@ -28,8 +26,17 @@ class DisplayWeather extends Component {
     this.getTemperature();
   };
 
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.temperatureValue !== this.props.temperatureValue ||
+      prevProps.windValue !== this.props.windValue
+    ) {
+      this.getTemperature();
+    }
+  }
+
   getTemperature = () => {
-    const { temperatureValue, windValue } = this.state;
+    const { temperatureValue, windValue } = this.props;
     let api = "";
 
     if (temperatureValue === "c" && windValue === "kmh") {
@@ -57,46 +64,14 @@ class DisplayWeather extends Component {
     });
   };
 
-  handlerChangeTemperature = ({ target: { value } }) => {
-    this.setState({
-      temperatureValue: value,
-    });
-    setTimeout(() => {
-      this.getTemperature();
-    }, 0);
-  };
-
-  handlerChangeWind = ({ target: { value } }) => {
-    this.setState({
-      windValue: value,
-    });
-    setTimeout(() => {
-      this.getTemperature();
-    }, 0);
-  };
-
   render() {
     const { temperature, wind } = this.state;
     return (
       <>
         <article>
-          {temperature ? <p> 🌡️{temperature}</p> : <p>Error...</p>}
+          {temperature ? <p> 🌡️ {temperature}</p> : <p>Error...</p>}
           {wind ? <p> 💨 {wind}</p> : <p>Error...</p>}
         </article>
-
-        <select onChange={this.handlerChangeTemperature}>
-          <option selected value="c">
-            °C
-          </option>
-          <option value="f">°F</option>
-        </select>
-
-        <select onChange={this.handlerChangeWind}>
-          <option selected value="kmh">
-            Km/h
-          </option>
-          <option value="ms">M/s</option>
-        </select>
       </>
     );
   }
