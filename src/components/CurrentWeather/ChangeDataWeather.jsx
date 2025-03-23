@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from'./CurrentWeather.module.css'
 
 class ChangeDataWeather extends Component {
  
@@ -12,21 +13,30 @@ class ChangeDataWeather extends Component {
 
   render() {
     return (
-      <div>
-        <select onChange={this.handlerChangeTemperature}>
-          <option value="c">
-            °C
-          </option>
-          <option value="f">°F</option>
-        </select>
+      <article className={styles.indicatorsWrapper}>
 
+        <label >
+          Wind speed unit:
         <select onChange={this.handlerChangeWind}>
           <option value="kmh">
             Km/h
           </option>
           <option value="ms">M/s</option>
         </select>
-      </div>
+        </label>
+
+        <label>
+         Temperature unit:
+        <select onChange={this.handlerChangeTemperature}>
+          <option value="c">
+            °C
+          </option>
+          <option value="f">°F</option>
+        </select>
+        </label>
+
+
+      </article>
     );
   }
 }

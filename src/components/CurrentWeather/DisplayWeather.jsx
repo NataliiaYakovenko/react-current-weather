@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from'./CurrentWeather.module.css'
 
 const temperatureCelsiusKm =
   "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=wind_speed_10m,temperature_2m&current=wind_speed_10m,temperature_2m";
@@ -26,7 +27,7 @@ class DisplayWeather extends Component {
     this.getTemperature();
   };
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate=(prevProps) =>{
     if (
       prevProps.temperatureValue !== this.props.temperatureValue ||
       prevProps.windValue !== this.props.windValue
@@ -34,6 +35,7 @@ class DisplayWeather extends Component {
       this.getTemperature();
     }
   }
+ 
 
   getTemperature = () => {
     const { temperatureValue, windValue } = this.props;
@@ -67,12 +69,13 @@ class DisplayWeather extends Component {
   render() {
     const { temperature, wind } = this.state;
     return (
-      <>
-        <article>
-          {temperature ? <p> 🌡️ {temperature}</p> : <p>Error...</p>}
+      
+        <article className={styles.displayWrapper}>
+           <h3 className={styles.displayTitle}>Current weather</h3>
           {wind ? <p> 💨 {wind}</p> : <p>Error...</p>}
+          {temperature ? <p> 🌡️ {temperature}</p> : <p>Error...</p>}
         </article>
-      </>
+      
     );
   }
 }

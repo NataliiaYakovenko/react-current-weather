@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import DisplayWeather from "./DisplayWeather";
 import ChangeDataWeather from "./ChangeDataWeather";
+import styles from './CurrentWeather.module.css'
 
 class CurrentWeather extends Component {
   constructor(props) {
@@ -16,28 +17,30 @@ class CurrentWeather extends Component {
     this.setState({
       temperatureValue: event.target.value,
     });
+   
   };
 
   handlerChangeWind = (event) => {
     this.setState({
       windValue: event.target.value,
     });
+  
   };
 
   render() {
     const { temperatureValue, windValue } = this.state;
     return (
-      <div>
+      <article className={styles.weatherWrapper}>
+        <ChangeDataWeather
+          onChangeTemperature={this.handlerChangeTemperature}
+          onChangeWind={this.handlerChangeWind}
+        />
         <DisplayWeather
           temperatureValue={temperatureValue}
           windValue={windValue}
         />
 
-        <ChangeDataWeather
-          onChangeTemperature={this.handlerChangeTemperature}
-          onChangeWind={this.handlerChangeWind}
-        />
-      </div>
+      </article>
     );
   }
 }

@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20220613/pngtree-evening-sky-dusk-color-morning-photo-image_18712206.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.weatherWrapper {
+  width: 55%;
+  min-width: 320px;
+  background-color: rgb(74, 74, 195);
+  border-radius: 30px;
+  margin: 0 auto;
+  font-size: 200%;
+  margin-top: 40px;
+
+  display: flex; /* Вирівнюємо два дочірні елементи */
+  justify-content: space-between; /* Додаємо простір між елементами */
+}
+
+.displayWrapper {
+  width: 50%;
+  border: 20px solid rgb(74, 74, 195);
+  background-color: rgb(151, 244, 244);
+  border-radius: 30px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 2%;
+}
+
+.displayTitle {
+  margin-bottom: 10%;
+  text-align: center;
+}
+
+.indicatorsWrapper {
+  width: 50%;
+  border: 20px solid rgb(74, 74, 195);
+  background-color: rgb(151, 244, 244);
+  border-radius: 30px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5% 2%;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+select {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 25px;
+  margin: 5% 1%;
+  padding: 2%;
+}
+
+option {
+  padding: 2%;
+}
+
+@media (max-width: 866px) {
+  .weatherWrapper {
+    width: 75%;
+  }
+  .displayWrapper,
+  .indicatorsWrapper {
+    border: 10px solid rgb(74, 74, 195);
+    font-size: 65%;
+  }
+  select {
+    font-size: 70%;
+  }
+}
+@media (max-width: 470px) {
+  .weatherWrapper {
+    width: 75%;
+  }
+  .displayWrapper,
+  .indicatorsWrapper {
+    border: 5px solid rgb(74, 74, 195);
+    font-size: 75%;
+  }
+}
