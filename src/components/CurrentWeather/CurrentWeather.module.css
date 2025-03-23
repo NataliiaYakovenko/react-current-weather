@@ -19,22 +19,21 @@ body {
 .weatherWrapper {
   width: 55%;
   min-width: 320px;
-  background-color: rgb(74, 74, 195);
+  background-color: rgb(202, 106, 202);
   border-radius: 30px;
   margin: 0 auto;
+  margin-top: 10%;
   font-size: 200%;
-  margin-top: 40px;
-
-  display: flex; /* Вирівнюємо два дочірні елементи */
-  justify-content: space-between; /* Додаємо простір між елементами */
+  display: flex;
+  justify-content: space-between;
 }
 
-.displayWrapper {
+.displayWrapper,
+.indicatorsWrapper {
   width: 50%;
-  border: 20px solid rgb(74, 74, 195);
-  background-color: rgb(151, 244, 244);
+  border: 20px solid rgb(202, 106, 202);
+  background-color: rgb(228, 204, 211);
   border-radius: 30px;
-  margin-left: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,17 +46,8 @@ body {
   text-align: center;
 }
 
-.indicatorsWrapper {
-  width: 50%;
-  border: 20px solid rgb(74, 74, 195);
-  background-color: rgb(151, 244, 244);
-  border-radius: 30px;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5% 2%;
+.displayText {
+  margin-bottom: 5%;
 }
 
 label {
@@ -68,7 +58,7 @@ label {
 
 select {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 25px;
   margin: 5% 1%;
   padding: 2%;
@@ -84,7 +74,7 @@ option {
   }
   .displayWrapper,
   .indicatorsWrapper {
-    border: 10px solid rgb(74, 74, 195);
+    border: 10px solid rgb(202, 106, 202);
     font-size: 65%;
   }
   select {
@@ -97,7 +87,7 @@ option {
   }
   .displayWrapper,
   .indicatorsWrapper {
-    border: 5px solid rgb(74, 74, 195);
+    border: 5px solid rgb(202, 106, 202);
     font-size: 75%;
   }
 }
