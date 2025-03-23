@@ -24,7 +24,7 @@ class DisplayWeather extends Component {
   }
 
   componentDidMount = () => {
-    this.getTemperature();
+    this.getWeather();
   };
 
   componentDidUpdate = (prevProps) => {
@@ -32,11 +32,11 @@ class DisplayWeather extends Component {
       prevProps.temperatureValue !== this.props.temperatureValue ||
       prevProps.windValue !== this.props.windValue
     ) {
-      this.getTemperature();
+      this.getWeather();
     }
   };
 
-  getTemperature = () => {
+  getWeather = () => {
     const { temperatureValue, windValue } = this.props;
     let api = "";
 
